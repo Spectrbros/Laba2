@@ -7,14 +7,14 @@ using namespace std;
 using namespace chrono;
 
 
-//Объявление переменных
+//РћР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…
 int user_choice;
 const int LEN_ARR = 100;
 int arr [LEN_ARR];
 int arr_sort [LEN_ARR];
 	    
 
-//Цвета тексиа
+//Р¦РІРµС‚Р° С‚РµРєСЃРёР°
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -22,11 +22,11 @@ int arr_sort [LEN_ARR];
 #define BLUE    "\033[34m"
 
 
-//Объявление функций
+//РћР±СЉСЏРІР»РµРЅРёРµ С„СѓРЅРєС†РёР№
 int menu_commands(int choice);
 
 
-//Сортировки
+//РЎРѕСЂС‚РёСЂРѕРІРєРё
 void bubble_sort(int* arr_sort) {
 	for (int i = 0; i < LEN_ARR - 1; ++i) {
 		for (int j = 0; j < LEN_ARR - 1 - i; ++j) {
@@ -105,7 +105,7 @@ void quick_sort(int* arr_sort, int begin, int end) {
 }
 
 
-//Функции
+//Р¤СѓРЅРєС†РёРё
 void separation() {
 	cout << "\n";
 }
@@ -113,7 +113,7 @@ void separation() {
 void waiting() {
 	separation();
 	separation();
-	cout << RED << "Нажмите Enter для продолжения..." << RESET << endl;
+	cout << RED << "РќР°Р¶РјРёС‚Рµ Enter РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ..." << RESET << endl;
 	cin.ignore();
 	cin.get();
 }
@@ -136,10 +136,10 @@ void clear_array_sort() {
 }
 
 void clear_array_menu() {
-	cout << "Выберите что очистить" << endl;
-	cout << GREEN << "1) Все массивы" << RESET << endl;
-	cout << GREEN << "2) Только отсортированный массив" << RESET << endl;
-	cout << "Выбор: ";
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ С‡С‚Рѕ РѕС‡РёСЃС‚РёС‚СЊ" << endl;
+	cout << GREEN << "1) Р’СЃРµ РјР°СЃСЃРёРІС‹" << RESET << endl;
+	cout << GREEN << "2) РўРѕР»СЊРєРѕ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ" << RESET << endl;
+	cout << "Р’С‹Р±РѕСЂ: ";
 	int clear_array_choice;
 	cin >> clear_array_choice;
 	switch (clear_array_choice) {
@@ -151,7 +151,7 @@ void clear_array_menu() {
 			break;
 	}
 	separation();
-	cout << GREEN << "Массив успешно очищен!" << RESET;
+	cout << GREEN << "РњР°СЃСЃРёРІ СѓСЃРїРµС€РЅРѕ РѕС‡РёС‰РµРЅ!" << RESET;
 }
 
 void random_array() {
@@ -162,27 +162,27 @@ void random_array() {
 }
 
 void hand_array() {
-	cout << RED << "Введите 100 чисел (от -99 до 99) по одному или одной строкой:\n" << RESET;
+	cout << RED << "Р’РІРµРґРёС‚Рµ 100 С‡РёСЃРµР» (РѕС‚ -99 РґРѕ 99) РїРѕ РѕРґРЅРѕРјСѓ РёР»Рё РѕРґРЅРѕР№ СЃС‚СЂРѕРєРѕР№:\n" << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		int temp_element;
-		cout << BLUE << i + 1 << " элемент: " << RESET;
+		cout << BLUE << i + 1 << " СЌР»РµРјРµРЅС‚: " << RESET;
 		cin >> temp_element;
 		if (-99 <= temp_element && temp_element <= 99) {
 			arr[i] = temp_element;
 		}
 		else {
-			cout << RED << "Введённое число не подходит (только числа от -99 до 99)!" << endl;
-			cout << "Введите другое число." << RESET << endl;
+			cout << RED << "Р’РІРµРґС‘РЅРЅРѕРµ С‡РёСЃР»Рѕ РЅРµ РїРѕРґС…РѕРґРёС‚ (С‚РѕР»СЊРєРѕ С‡РёСЃР»Р° РѕС‚ -99 РґРѕ 99)!" << endl;
+			cout << "Р’РІРµРґРёС‚Рµ РґСЂСѓРіРѕРµ С‡РёСЃР»Рѕ." << RESET << endl;
 			--i;
 		}
 	}
 }
 
 void input_array() {
-	cout << "Выберите способ заполнения массива:" << endl;
-	cout << GREEN << "1) Заполнение случайными числами" << RESET << endl;
-	cout << GREEN << "2) Заполнение вручную" << RESET << endl;
-	cout << "Способ: ";
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ СЃРїРѕСЃРѕР± Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°СЃСЃРёРІР°:" << endl;
+	cout << GREEN << "1) Р—Р°РїРѕР»РЅРµРЅРёРµ СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё" << RESET << endl;
+	cout << GREEN << "2) Р—Р°РїРѕР»РЅРµРЅРёРµ РІСЂСѓС‡РЅСѓСЋ" << RESET << endl;
+	cout << "РЎРїРѕСЃРѕР±: ";
 	int input_array_choice;
 	cin >> input_array_choice;
 	separation();
@@ -194,11 +194,11 @@ void input_array() {
 			hand_array();
 			break;
 	}
-	cout << GREEN << "Массив успешно создан!" << RESET;
+	cout << GREEN << "РњР°СЃСЃРёРІ СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!" << RESET;
 }
 
 void output_array() {
-	cout << GREEN <<"Текущий неотсортированный массив:\n" << RESET;
+	cout << GREEN <<"РўРµРєСѓС‰РёР№ РЅРµРѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ:\n" << RESET;
 	cout << "{ ";
 	for (int i = 0; i < LEN_ARR; ++i) {
 		cout << arr[i] << " ";
@@ -207,7 +207,7 @@ void output_array() {
 }
 
 void output_array_sort() {
-	cout << GREEN << "Текущий отсортированный массив:\n" << RESET;
+	cout << GREEN << "РўРµРєСѓС‰РёР№ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ:\n" << RESET;
 	cout << "{ ";
 	for (int i = 0; i < LEN_ARR; ++i) {
 		cout << arr_sort[i] << " ";
@@ -216,7 +216,7 @@ void output_array_sort() {
 }
 
 void command_choice() {
-	cout << GREEN << "Введите номер команды: " << RESET;
+	cout << GREEN << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РєРѕРјР°РЅРґС‹: " << RESET;
 	cin >> user_choice;
 	separation();
 	menu_commands(user_choice);
@@ -229,13 +229,13 @@ void array_copy(int* arr, int* arr_sort) {
 }
 
 void sort_menu() {
-	cout << "Выберите способ сортировки:" << endl;
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ СЃРїРѕСЃРѕР± СЃРѕСЂС‚РёСЂРѕРІРєРё:" << endl;
 	cout << GREEN << "1) Bubble sort" << RESET << endl;
 	cout << GREEN << "2) Shaker sort" << RESET << endl;
 	cout << GREEN << "3) Insertion sort" << RESET << endl;
 	cout << GREEN << "4) Selection sort" << RESET << endl;
 	cout << GREEN << "5) Quick sort" << RESET << endl;
-	cout << "Способ: ";
+	cout << "РЎРїРѕСЃРѕР±: ";
 	int input_sort_choice;
 	cin >> input_sort_choice;
 	array_copy(arr, arr_sort);
@@ -279,7 +279,7 @@ void sort_menu() {
 			break;
 		}
 	}
-	cout << GREEN << "Массив успешно отсортирован за " << result.count() << " нс" << RESET;
+	cout << GREEN << "РњР°СЃСЃРёРІ СѓСЃРїРµС€РЅРѕ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ Р·Р° " << result.count() << " РЅСЃ" << RESET;
 }
 
 void max_min_array(int* arr, int& max_array, int& min_array) {
@@ -308,8 +308,8 @@ void max_min_output() {
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
 
-	cout << GREEN << "Максимальный элемент массива: " << RESET << max_array << endl;
-	cout << GREEN << "Минимальный элемент массива: " << RESET << min_array << endl;
+	cout << GREEN << "РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°: " << RESET << max_array << endl;
+	cout << GREEN << "РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°: " << RESET << min_array << endl;
 
 	auto start2 = steady_clock::now();
 	max_min_array_sort(arr_sort, max_array, min_array);
@@ -317,13 +317,13 @@ void max_min_output() {
 	auto result2 = duration_cast<nanoseconds>(end2 - start2);
 
 	separation();
-	cout << GREEN << "Время поиска в неотсортированном массиве: " << RESET << result1.count() << endl;
-	cout << GREEN << "Время поиска в отсортированном массиве: " << RESET << result2.count() << endl;
+	cout << GREEN << "Р’СЂРµРјСЏ РїРѕРёСЃРєР° РІ РЅРµРѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРј РјР°СЃСЃРёРІРµ: " << RESET << result1.count() << endl;
+	cout << GREEN << "Р’СЂРµРјСЏ РїРѕРёСЃРєР° РІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРј РјР°СЃСЃРёРІРµ: " << RESET << result2.count() << endl;
 }
 
 void elements_finding(int* arr, int& average_max_min) {
 	int count_elements = 0;
-	cout << GREEN << "Индексы элементов, равных среднему значению max и min: " << RESET;
+	cout << GREEN << "РРЅРґРµРєСЃС‹ СЌР»РµРјРµРЅС‚РѕРІ, СЂР°РІРЅС‹С… СЃСЂРµРґРЅРµРјСѓ Р·РЅР°С‡РµРЅРёСЋ max Рё min: " << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr[i] == average_max_min) {
 			cout << arr[i] << " ";
@@ -331,41 +331,41 @@ void elements_finding(int* arr, int& average_max_min) {
 		}
 	}
 	separation();
-	cout << GREEN << "Количество элементов: " << RESET << count_elements << endl;
+	cout << GREEN << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ: " << RESET << count_elements << endl;
 }
 
 void average_max_min() {
 	int max_array;
 	int min_array;
 
-	cout << RED << "Неотсортированный массив:" << RESET << endl;
+	cout << RED << "РќРµРѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ:" << RESET << endl;
 	auto start1 = steady_clock::now();
 	max_min_array(arr, max_array, min_array);
 	int average_max_min = (max_array + min_array) / 2;
 	elements_finding(arr, average_max_min);
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
-	cout << GREEN << "Поиск в неотсортированном массиве выполнен за  " << RESET << result1.count() << "нс" << endl;
-	cout << GREEN << "Среднее значение max и min элемента массива: " << RESET << average_max_min << endl;
+	cout << GREEN << "РџРѕРёСЃРє РІ РЅРµРѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРј РјР°СЃСЃРёРІРµ РІС‹РїРѕР»РЅРµРЅ Р·Р°  " << RESET << result1.count() << "РЅСЃ" << endl;
+	cout << GREEN << "РЎСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ max Рё min СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°: " << RESET << average_max_min << endl;
 	separation();
 
-	cout << RED << "Отсортированный массив:" << RESET << endl;
+	cout << RED << "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ:" << RESET << endl;
 	auto start2 = steady_clock::now();
 	max_min_array_sort(arr_sort, max_array, min_array);
 	int average_max_min_sort = (max_array + min_array) / 2;
 	elements_finding(arr_sort, average_max_min_sort);
 	auto end2 = steady_clock::now();
 	auto result2 = duration_cast<nanoseconds>(end2 - start2);
-	cout << GREEN << "Поиск в отсортированном массиве выполнен за  " << RESET << result2.count() << "нс" << endl;
-	cout << GREEN << "Среднее значение max и min элемента массива: " << RESET << average_max_min_sort << endl;
+	cout << GREEN << "РџРѕРёСЃРє РІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРј РјР°СЃСЃРёРІРµ РІС‹РїРѕР»РЅРµРЅ Р·Р°  " << RESET << result2.count() << "РЅСЃ" << endl;
+	cout << GREEN << "РЎСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ max Рё min СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°: " << RESET << average_max_min_sort << endl;
 }
 
 void elements_less_a(int* arr_sort) {
 	int number_a;
-	cout << RED <<"Введите число a: " << RESET;
+	cout << RED <<"Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ a: " << RESET;
 	cin >> number_a;
 	int count_elements = 0;
-	cout << GREEN << "Элементы меньше a: " << RESET;
+	cout << GREEN << "Р­Р»РµРјРµРЅС‚С‹ РјРµРЅСЊС€Рµ a: " << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr_sort[i] < number_a) {
 			cout << arr_sort[i] << " ";
@@ -373,15 +373,15 @@ void elements_less_a(int* arr_sort) {
 		}
 	}
 	separation();
-	cout << GREEN << "Количество элементов меньше a: " << RESET << count_elements << endl;
+	cout << GREEN << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РјРµРЅСЊС€Рµ a: " << RESET << count_elements << endl;
 }
 
 void elements_greater_b(int* arr_sort) {
 	int number_b;
-	cout << RED << "Введите число b: " << RESET;
+	cout << RED << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ b: " << RESET;
 	cin >> number_b;
 	int count_elements = 0;
-	cout << GREEN << "Элементы больше b: " << RESET;
+	cout << GREEN << "Р­Р»РµРјРµРЅС‚С‹ Р±РѕР»СЊС€Рµ b: " << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr_sort[i] > number_b) {
 			cout << arr_sort[i] << " ";
@@ -389,7 +389,7 @@ void elements_greater_b(int* arr_sort) {
 		}
 	}
 	separation();
-	cout << GREEN << "Количество элементов больше b: " << RESET << count_elements << endl;
+	cout << GREEN << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ Р±РѕР»СЊС€Рµ b: " << RESET << count_elements << endl;
 }
 
 bool element_find_default(int* arr_sort, int& element_find) {
@@ -421,36 +421,36 @@ bool element_find_binary(int* arr_sort, int& element_find, int start, int end) {
 
 void element_find_output() {
 	int element_find;
-	cout << RED << "Введите число для поиска: " << RESET;
+	cout << RED << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РґР»СЏ РїРѕРёСЃРєР°: " << RESET;
 	cin >> element_find;
 	separation();
 
-	cout << RED << "Метод перебора: " << RESET << endl;
+	cout << RED << "РњРµС‚РѕРґ РїРµСЂРµР±РѕСЂР°: " << RESET << endl;
 	auto start1 = steady_clock::now();
 	bool flag1 = element_find_default(arr_sort, element_find);
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
 	if (flag1) {
-		cout << GREEN << "Элемент " << RESET << element_find << GREEN << " найден в массиве!" << RESET << endl;
+		cout << GREEN << "Р­Р»РµРјРµРЅС‚ " << RESET << element_find << GREEN << " РЅР°Р№РґРµРЅ РІ РјР°СЃСЃРёРІРµ!" << RESET << endl;
 	}
 	else {
-		cout << RED << "Элемент " << RESET << element_find << RED << " не найден в массиве!" << RESET << endl;
+		cout << RED << "Р­Р»РµРјРµРЅС‚ " << RESET << element_find << RED << " РЅРµ РЅР°Р№РґРµРЅ РІ РјР°СЃСЃРёРІРµ!" << RESET << endl;
 	}
-	cout << GREEN << "Время выполнения: " << result1.count() << "нс" << RESET << endl;
+	cout << GREEN << "Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ: " << result1.count() << "РЅСЃ" << RESET << endl;
 	separation();
 
-	cout << RED << "Метод бинарного поиска: " << RESET << endl;
+	cout << RED << "РњРµС‚РѕРґ Р±РёРЅР°СЂРЅРѕРіРѕ РїРѕРёСЃРєР°: " << RESET << endl;
 	auto start2 = steady_clock::now();
 	bool flag2 = element_find_binary(arr_sort, element_find, 0, LEN_ARR - 1);
 	auto end2 = steady_clock::now();
 	auto result2 = duration_cast<nanoseconds>(end2 - start2);
 	if (flag2) {
-		cout << GREEN << "Элемент " << RESET << element_find << GREEN << " найден в массиве!" << RESET << endl;
+		cout << GREEN << "Р­Р»РµРјРµРЅС‚ " << RESET << element_find << GREEN << " РЅР°Р№РґРµРЅ РІ РјР°СЃСЃРёРІРµ!" << RESET << endl;
 	}
 	else {
-		cout << RED << "Элемент " << RESET << element_find << RED << " не найден в массиве!" << RESET << endl;
+		cout << RED << "Р­Р»РµРјРµРЅС‚ " << RESET << element_find << RED << " РЅРµ РЅР°Р№РґРµРЅ РІ РјР°СЃСЃРёРІРµ!" << RESET << endl;
 	}
-	cout << GREEN << "Время выполнения: " << result2.count() << "нс" << RESET << endl;
+	cout << GREEN << "Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ: " << result2.count() << "РЅСЃ" << RESET << endl;
 }
 
 void swap_elements_array(int* arr_sort, int& index1, int& index2) {
@@ -462,10 +462,10 @@ void swap_elements_array_output() {
 	separation();
 	int index1;
 	int index2;
-	cout << RED << "Введите индексы двух элементов для обмена местами (от 0 до 99)." << RESET << endl;
-	cout << BLUE << "Первый индекс: " << RESET;
+	cout << RED << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃС‹ РґРІСѓС… СЌР»РµРјРµРЅС‚РѕРІ РґР»СЏ РѕР±РјРµРЅР° РјРµСЃС‚Р°РјРё (РѕС‚ 0 РґРѕ 99)." << RESET << endl;
+	cout << BLUE << "РџРµСЂРІС‹Р№ РёРЅРґРµРєСЃ: " << RESET;
 	cin >> index1;
-	cout << BLUE << "Второй индекс: " << RESET;
+	cout << BLUE << "Р’С‚РѕСЂРѕР№ РёРЅРґРµРєСЃ: " << RESET;
 	cin >> index2;
 	separation();
 	auto start1 = steady_clock::now();
@@ -474,19 +474,19 @@ void swap_elements_array_output() {
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
 	output_array_sort();
 	separation();
-	cout << GREEN << "Элементы успешно обменяны местами за " << RESET << result1.count() << "нс";
+	cout << GREEN << "Р­Р»РµРјРµРЅС‚С‹ СѓСЃРїРµС€РЅРѕ РѕР±РјРµРЅСЏРЅС‹ РјРµСЃС‚Р°РјРё Р·Р° " << RESET << result1.count() << "РЅСЃ";
 }
 
 void pass_find_output() {
-	cout << RED << "Введите размер последовательности (N) (не больше 1000): " << RESET;
+	cout << RED << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё (N) (РЅРµ Р±РѕР»СЊС€Рµ 1000): " << RESET;
 	int n;
 	cin >> n;
 	const int MAX_SIZE = 1000;
 	int sequence [MAX_SIZE];
 
-	cout << RED << "Введите " << n - 1 << " чисел из последовательности 0 до " << n - 1 << " c пропущенным числом и одинаковым шагом:" << RESET << endl;
+	cout << RED << "Р’РІРµРґРёС‚Рµ " << n - 1 << " С‡РёСЃРµР» РёР· РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё 0 РґРѕ " << n - 1 << " c РїСЂРѕРїСѓС‰РµРЅРЅС‹Рј С‡РёСЃР»РѕРј Рё РѕРґРёРЅР°РєРѕРІС‹Рј С€Р°РіРѕРј:" << RESET << endl;
 	for (int i = 0; i < n - 1; ++i) {
-		cout << BLUE << i + 1 << " число: " << RESET;
+		cout << BLUE << i + 1 << " С‡РёСЃР»Рѕ: " << RESET;
 		cin >> sequence[i];
 	}
 	int current_sum_elements = 0;
@@ -518,7 +518,7 @@ void pass_find_output() {
 			break;
 		}
 	}
-	cout << GREEN << "Пропущенное число: " << RESET << missing_number << endl;
+	cout << GREEN << "РџСЂРѕРїСѓС‰РµРЅРЅРѕРµ С‡РёСЃР»Рѕ: " << RESET << missing_number << endl;
 	separation();
 }
 
@@ -583,7 +583,7 @@ int menu_commands(int choice) {
 		return 0;
 		break;
 	default:
-		cout << RED <<"Ошибка! Введите номер команды от 1 до 11\n" << RESET << endl;
+		cout << RED <<"РћС€РёР±РєР°! Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РєРѕРјР°РЅРґС‹ РѕС‚ 1 РґРѕ 11\n" << RESET << endl;
 		command_choice();
 		break;
 
@@ -593,27 +593,27 @@ int menu_commands(int choice) {
 void menu() {
 	setlocale(0, "");
 	cout << "|=======================================================|" << endl;
-	cout << "|                 " << BLUE << "Лабораторная работа 2" << RESET << "                 |" << endl;
+	cout << "|                 " << BLUE << "Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° 2" << RESET << "                 |" << endl;
 	cout << "|=======================================================|" << endl;
-	cout << "| " << GREEN << "1) Создать целочисленный массив" << RESET << "                       |" << endl;
-	cout << "| " << GREEN << "2) Отсортировать массив по возрастанию" << RESET << "                |" << endl;
-	cout << "| " << GREEN << "3) Найти max и min элемент массива" << RESET << "                    |" << endl;
-	cout << "| " << GREEN << "4) Найти среднее значение max и min значения массива" << RESET << "  |" << endl;
-	cout << "| " << GREEN << "5) Количество элементов, меньших числа a" << RESET << "              |" << endl;
-	cout << "| " << GREEN << "6) Количество элементов, больших числа b" << RESET << "              |" << endl;
-	cout << "| " << GREEN << "7) Поиск числа в массиве" << RESET << "                              |" << endl;
-	cout << "| " << GREEN << "8) Поменять местами элементы массива" << RESET << "                  |" << endl;
-	cout << "| " << GREEN << "9) Найти пропущенное число в последовательности (ИДЗ)" << RESET << " |" << endl;
+	cout << "| " << GREEN << "1) РЎРѕР·РґР°С‚СЊ С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Р№ РјР°СЃСЃРёРІ" << RESET << "                       |" << endl;
+	cout << "| " << GREEN << "2) РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ" << RESET << "                |" << endl;
+	cout << "| " << GREEN << "3) РќР°Р№С‚Рё max Рё min СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°" << RESET << "                    |" << endl;
+	cout << "| " << GREEN << "4) РќР°Р№С‚Рё СЃСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ max Рё min Р·РЅР°С‡РµРЅРёСЏ РјР°СЃСЃРёРІР°" << RESET << "  |" << endl;
+	cout << "| " << GREEN << "5) РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, РјРµРЅСЊС€РёС… С‡РёСЃР»Р° a" << RESET << "              |" << endl;
+	cout << "| " << GREEN << "6) РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ, Р±РѕР»СЊС€РёС… С‡РёСЃР»Р° b" << RESET << "              |" << endl;
+	cout << "| " << GREEN << "7) РџРѕРёСЃРє С‡РёСЃР»Р° РІ РјР°СЃСЃРёРІРµ" << RESET << "                              |" << endl;
+	cout << "| " << GREEN << "8) РџРѕРјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°" << RESET << "                  |" << endl;
+	cout << "| " << GREEN << "9) РќР°Р№С‚Рё РїСЂРѕРїСѓС‰РµРЅРЅРѕРµ С‡РёСЃР»Рѕ РІ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё (РР”Р—)" << RESET << " |" << endl;
 	cout << "|                                                       |" << endl;
-	cout << "| " << RED << "10) Вывести текущий массив" << RESET << "                            |" << endl;
-	cout << "| " << RED << "11) Очистить массив" << RESET << "                                   |" << endl;
+	cout << "| " << RED << "10) Р’С‹РІРµСЃС‚Рё С‚РµРєСѓС‰РёР№ РјР°СЃСЃРёРІ" << RESET << "                            |" << endl;
+	cout << "| " << RED << "11) РћС‡РёСЃС‚РёС‚СЊ РјР°СЃСЃРёРІ" << RESET << "                                   |" << endl;
 	cout << "|=======================================================|" << endl;
-	cout << "|                 " << BLUE << "Лабораторная работа 2" << RESET << "                 |" << endl;
+	cout << "|                 " << BLUE << "Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° 2" << RESET << "                 |" << endl;
 	cout << "|=======================================================|" << endl;
 	cout << endl;
 }
 
-//Главная функция
+//Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ
 int main() {
 	while (true) {
 		menu();
