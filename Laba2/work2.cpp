@@ -7,18 +7,16 @@ using namespace std;
 using namespace chrono;
 
 
-//Объявление переменных
-int user_choice;
+//Объявление
 const int LEN_ARR = 100;
 int arr [LEN_ARR];
 int arr_sort [LEN_ARR];
 	    
 
-//Цвета тексиа
+//Цвета текста
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
 #define BLUE    "\033[34m"
 
 
@@ -105,7 +103,7 @@ void quick_sort(int* arr_sort, int begin, int end) {
 }
 
 
-//Функции
+//Другие функции
 void separation() {
 	cout << "\n";
 }
@@ -217,6 +215,7 @@ void output_array_sort() {
 
 void command_choice() {
 	cout << GREEN << "Введите номер команды: " << RESET;
+	int user_choice;
 	cin >> user_choice;
 	separation();
 	menu_commands(user_choice);
@@ -489,6 +488,7 @@ void pass_find_output() {
 		cout << BLUE << i + 1 << " число: " << RESET;
 		cin >> sequence[i];
 	}
+
 	int current_sum_elements = 0;
 	int final_sum_elements = n * (n - 1) / 2;
 	for (int i = 0; i < n - 1; ++i) {
