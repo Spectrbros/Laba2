@@ -325,7 +325,7 @@ void elements_finding_array(int* arr, int& average_max_min) {
 	cout << GREEN << "Индексы элементов, равных среднему значению max и min: " << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr[i] == average_max_min) {
-			cout << arr[i] << " ";
+			cout << i << " ";
 			++count_elements;
 		}
 	}
@@ -338,7 +338,7 @@ void elements_finding_array_sort(int* arr, int& average_max_min) {
 	cout << GREEN << "Индексы элементов, равных среднему значению max и min: " << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr[i] == average_max_min) {
-			cout << arr[i] << " ";
+			cout << i << " ";
 			++count_elements;
 		}
 		else {
