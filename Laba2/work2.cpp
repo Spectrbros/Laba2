@@ -402,13 +402,10 @@ void elements_greater_b(int* arr_sort) {
 	cin >> number_b;
 	int count_elements = 0;
 	cout << GREEN << "Элементы больше b: " << RESET;
-	for (int i = LEN_ARR - 1; i >= 0; --i) {
+	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr_sort[i] > number_b) {
 			cout << arr_sort[i] << " ";
 			++count_elements;
-		}
-		else {
-			break;
 		}
 	}
 	separation();
