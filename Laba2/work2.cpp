@@ -9,9 +9,9 @@ using namespace chrono;
 
 //Объявление
 const int LEN_ARR = 100;
-int arr [LEN_ARR];
-int arr_sort [LEN_ARR];
-	    
+int arr[LEN_ARR];
+int arr_sort[LEN_ARR];
+
 
 //Цвета текста
 #define RESET   "\033[0m"
@@ -52,11 +52,11 @@ void shaker_sort(int* arr_sort) {
 		}
 		++left;
 	}
-	
+
 }
 
 void insertion_sort(int* arr_sort) {
-	for (int i = 1; i < LEN_ARR; ++i){
+	for (int i = 1; i < LEN_ARR; ++i) {
 		int j = i - 1;
 		int key = arr_sort[i];
 		while (j >= 0 && arr_sort[j] > key) {
@@ -115,7 +115,7 @@ void waiting() {
 	cin.ignore();
 	cin.get();
 }
-	
+
 void clear_screen() {
 	system("cls");
 }
@@ -141,12 +141,12 @@ void clear_array_menu() {
 	int clear_array_choice;
 	cin >> clear_array_choice;
 	switch (clear_array_choice) {
-		case 1:
-			clear_all_array();
-			break;
-		case 2:
-			clear_array_sort();
-			break;
+	case 1:
+		clear_all_array();
+		break;
+	case 2:
+		clear_array_sort();
+		break;
 	}
 	separation();
 	cout << GREEN << "Массив успешно очищен!" << RESET;
@@ -185,18 +185,18 @@ void input_array() {
 	cin >> input_array_choice;
 	separation();
 	switch (input_array_choice) {
-		case 1:
-			random_array();
-			break;
-		case 2:
-			hand_array();
-			break;
+	case 1:
+		random_array();
+		break;
+	case 2:
+		hand_array();
+		break;
 	}
 	cout << GREEN << "Массив успешно создан!" << RESET;
 }
 
 void output_array() {
-	cout << GREEN <<"Текущий неотсортированный массив:\n" << RESET;
+	cout << GREEN << "Текущий неотсортированный массив:\n" << RESET;
 	cout << "{ ";
 	for (int i = 0; i < LEN_ARR; ++i) {
 		cout << arr[i] << " ";
@@ -241,42 +241,42 @@ void sort_menu() {
 	separation();
 	nanoseconds result;
 	switch (input_sort_choice) {
-		case 1: {
-			auto start = steady_clock::now();
-			bubble_sort(arr_sort);
-			auto end = steady_clock::now();
-			result = duration_cast<nanoseconds>(end - start);
-			break;
-		}
-		case 2: {
-			auto start = steady_clock::now();
-			shaker_sort(arr_sort);
-			auto end = steady_clock::now();
-			result = duration_cast<nanoseconds>(end - start);
-			break;
-		}
-		case 3: {
-			auto start = steady_clock::now();
-			insertion_sort(arr_sort);
-			auto end = steady_clock::now();
-			result = duration_cast<nanoseconds>(end - start);
-			break;
-		}
-		case 4: {
-			auto start = steady_clock::now();
-			selection_sort(arr_sort);
-			auto end = steady_clock::now();
-			result = duration_cast<nanoseconds>(end - start);
-			break;
-		}
-		case 5:
-		{
-			auto start = steady_clock::now();
-			quick_sort(arr_sort, 0, LEN_ARR - 1);
-			auto end = steady_clock::now();
-			result = duration_cast<nanoseconds>(end - start);
-			break;
-		}
+	case 1: {
+		auto start = steady_clock::now();
+		bubble_sort(arr_sort);
+		auto end = steady_clock::now();
+		result = duration_cast<nanoseconds>(end - start);
+		break;
+	}
+	case 2: {
+		auto start = steady_clock::now();
+		shaker_sort(arr_sort);
+		auto end = steady_clock::now();
+		result = duration_cast<nanoseconds>(end - start);
+		break;
+	}
+	case 3: {
+		auto start = steady_clock::now();
+		insertion_sort(arr_sort);
+		auto end = steady_clock::now();
+		result = duration_cast<nanoseconds>(end - start);
+		break;
+	}
+	case 4: {
+		auto start = steady_clock::now();
+		selection_sort(arr_sort);
+		auto end = steady_clock::now();
+		result = duration_cast<nanoseconds>(end - start);
+		break;
+	}
+	case 5:
+	{
+		auto start = steady_clock::now();
+		quick_sort(arr_sort, 0, LEN_ARR - 1);
+		auto end = steady_clock::now();
+		result = duration_cast<nanoseconds>(end - start);
+		break;
+	}
 	}
 	cout << GREEN << "Массив успешно отсортирован за " << result.count() << " нс" << RESET;
 }
@@ -320,13 +320,31 @@ void max_min_output() {
 	cout << GREEN << "Время поиска в отсортированном массиве: " << RESET << result2.count() << endl;
 }
 
-void elements_finding(int* arr, int& average_max_min) {
+void elements_finding_array(int* arr, int& average_max_min) {
 	int count_elements = 0;
 	cout << GREEN << "Индексы элементов, равных среднему значению max и min: " << RESET;
 	for (int i = 0; i < LEN_ARR; ++i) {
 		if (arr[i] == average_max_min) {
 			cout << arr[i] << " ";
 			++count_elements;
+		}
+	}
+	separation();
+	cout << GREEN << "Количество элементов: " << RESET << count_elements << endl;
+}
+
+void elements_finding_array_sort(int* arr, int& average_max_min) {
+	int count_elements = 0;
+	cout << GREEN << "Индексы элементов, равных среднему значению max и min: " << RESET;
+	for (int i = 0; i < LEN_ARR; ++i) {
+		if (arr[i] == average_max_min) {
+			cout << arr[i] << " ";
+			++count_elements;
+		}
+		else {
+			if (arr[i] > average_max_min) {
+				break;
+			}
 		}
 	}
 	separation();
@@ -341,7 +359,7 @@ void average_max_min() {
 	auto start1 = steady_clock::now();
 	max_min_array(arr, max_array, min_array);
 	int average_max_min = (max_array + min_array) / 2;
-	elements_finding(arr, average_max_min);
+	elements_finding_array(arr, average_max_min);
 	auto end1 = steady_clock::now();
 	auto result1 = duration_cast<nanoseconds>(end1 - start1);
 	cout << GREEN << "Поиск в неотсортированном массиве выполнен за  " << RESET << result1.count() << "нс" << endl;
@@ -352,7 +370,7 @@ void average_max_min() {
 	auto start2 = steady_clock::now();
 	max_min_array_sort(arr_sort, max_array, min_array);
 	int average_max_min_sort = (max_array + min_array) / 2;
-	elements_finding(arr_sort, average_max_min_sort);
+	elements_finding_array_sort(arr_sort, average_max_min_sort);
 	auto end2 = steady_clock::now();
 	auto result2 = duration_cast<nanoseconds>(end2 - start2);
 	cout << GREEN << "Поиск в отсортированном массиве выполнен за  " << RESET << result2.count() << "нс" << endl;
@@ -361,7 +379,7 @@ void average_max_min() {
 
 void elements_less_a(int* arr_sort) {
 	int number_a;
-	cout << RED <<"Введите число a: " << RESET;
+	cout << RED << "Введите число a: " << RESET;
 	cin >> number_a;
 	int count_elements = 0;
 	cout << GREEN << "Элементы меньше a: " << RESET;
@@ -369,6 +387,9 @@ void elements_less_a(int* arr_sort) {
 		if (arr_sort[i] < number_a) {
 			cout << arr_sort[i] << " ";
 			++count_elements;
+		}
+		else {
+			break;
 		}
 	}
 	separation();
@@ -381,10 +402,13 @@ void elements_greater_b(int* arr_sort) {
 	cin >> number_b;
 	int count_elements = 0;
 	cout << GREEN << "Элементы больше b: " << RESET;
-	for (int i = 0; i < LEN_ARR; ++i) {
+	for (int i = LEN_ARR - 1; i >= 0; --i) {
 		if (arr_sort[i] > number_b) {
 			cout << arr_sort[i] << " ";
 			++count_elements;
+		}
+		else {
+			break;
 		}
 	}
 	separation();
@@ -481,7 +505,7 @@ void pass_find_output() {
 	int n;
 	cin >> n;
 	const int MAX_SIZE = 1000;
-	int sequence [MAX_SIZE];
+	int sequence[MAX_SIZE];
 
 	cout << RED << "Введите " << n - 1 << " чисел из последовательности 0 до " << n - 1 << " c пропущенным числом и одинаковым шагом:" << RESET << endl;
 	for (int i = 0; i < n - 1; ++i) {
@@ -583,7 +607,7 @@ int menu_commands(int choice) {
 		return 0;
 		break;
 	default:
-		cout << RED <<"Ошибка! Введите номер команды от 1 до 11\n" << RESET << endl;
+		cout << RED << "Ошибка! Введите номер команды от 1 до 11\n" << RESET << endl;
 		command_choice();
 		break;
 
